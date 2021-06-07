@@ -27,6 +27,19 @@
 	Или в разных проектах если это кажется удобнее.
 */
 
+bool isPrime(int value)
+{
+    if (value > 1)
+    {
+        for (int i = 2; i < value; i++)
+            if (value % i == 0) 
+                return false;
+ 
+        return true;
+    }
+    else 
+        return false;
+}
 
 int getValue()
 {
@@ -96,6 +109,7 @@ void task1()
 	std::cout << "Результат = " << std::boolalpha << checkInt << std::endl;
 	std::cout << std::dec;
 }
+
 void task2()
 {
 	/*
@@ -141,18 +155,37 @@ void task3()
 	*/
 
 	const int RANGE = getValue();
-	cout::cout << "Простое число = ";
-	for (size_t i = 0; i < RANGE; i++)
+	std::cout << "Простые числа = ";
+	for (size_t current_val = 0; current_val  <= RANGE; current_val++)
 	{
-		if (i % i == 0)
+		if(isPrime(current_val))
 		{
-			if(i % 2 == !0);
-			{
-				cout::cout << i << " ";
-			}
+			std::cout << current_val  << " "; 
 		}
+		
 	}
-	std::cout << std::endl << "Все простые числа."
+	std::cout << std::endl << "Все простые числа.";
+}
+
+void task4()
+{
+	/*
+		Со звёздочкой. Пользователь вводит с клавиатуры число (год): от 1 до 3000. Написать программу,
+	которая определяет является ли этот год високосным. Каждый 4-й год является високосным, кроме каждого
+	100-го, при этом каждый 400-й – високосный. Вывести результаты работы программы в консоль.
+	Замечание: Можно сделать в одном проекте (например разместить разные задания в разных функциях).
+	Или в разных проектах если это кажется удобнее.
+	*/
+
+	std::cout << "Введите год - ";
+	int thisYear = getValue();
+	if(thisYear % 4 == 0 && thisYear % 100 != 0 || thisYear % 400 == 0)
+		std::cout << "Этот год высокостный.";
+	else
+		std::cout << "Этот год не высокостный.";
+
+
+
 }
 
 int main()
@@ -162,8 +195,9 @@ int main()
 	do
 	{
 		//task1();
-		task2();
-		
+		//task2();
+		//task3();
+		task4();
 
 		
 	} while (inArb());
